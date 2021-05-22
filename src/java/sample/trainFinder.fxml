@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<SplitPane dividerPositions="0.44481605351170567" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0"
+           minWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="sample.TrainFinderController">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0"
+                style="-fx-background-color: white">
+        <ComboBox fx:id="fromCombo" layoutX="113.0" layoutY="141.0" prefWidth="150.0" promptText="Stacja początkowa"/>
+        <ComboBox fx:id="toCombo" layoutX="113.0" layoutY="213.0" prefWidth="150.0" promptText="Stacja końcowa"/>
+        <DatePicker fx:id="departureDataPicker" layoutX="101.0" layoutY="287.0" promptText="Data odjazdu"/>
+        <Button defaultButton="true" layoutX="125.0" layoutY="452.0" mnemonicParsing="false"
+                onAction="#setTrainsTable" text="Wyszukaj połączenia" textAlignment="CENTER">
+            <cursor>
+              <Cursor fx:constant="HAND"/>
+            </cursor>
+        </Button>
+        <ImageView fitHeight="78.0" fitWidth="159.0" layoutX="111.0" layoutY="20.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <Image url="@../pkpImg.jpg"/>
+        </ImageView>
+        <Label layoutX="118.0" layoutY="110.0" text="Stacja początkowa">
+            <font>
+              <Font name="System Bold" size="16.0"/>
+            </font>
+        </Label>
+        <Label layoutX="129.0" layoutY="182.0" text="Stacja końcowa">
+            <font>
+              <Font name="System Bold" size="16.0"/>
+            </font>
+        </Label>
+        <Label layoutX="138.0" layoutY="255.0" text="Data odjazdu">
+            <font>
+              <Font name="System Bold" size="16.0"/>
+            </font>
+        </Label>
+        <Label layoutX="124.0" layoutY="330.0" text="Godzina odjazdu">
+            <font>
+              <Font name="System Bold" size="16.0"/>
+            </font>
+        </Label>
+        <ComboBox fx:id="departureTimeCombo" layoutX="113.0" layoutY="362.0" prefWidth="150.0"
+                  promptText="Godzina odjazdu"/>
+    </AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+        <TableView fx:id="trainsTable" prefHeight="400.0" prefWidth="329.0" AnchorPane.bottomAnchor="0.0"
+                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <columns>
+              <TableColumn fx:id="trainNameColumn" editable="false" prefWidth="136.0" resizable="false"
+                           style="-fx-alignment: CENTER" text="Nazwa Pociągu"/>
+              <TableColumn fx:id="departureTimeColumn" editable="false" prefWidth="123.0" resizable="false"
+                           style="-fx-alignment: CENTER" text="Godzina Odjazdu"/>
+              <TableColumn fx:id="ticketPriceColumn" editable="false" prefWidth="93.0" resizable="false"
+                           style="-fx-alignment: CENTER" text="Cena Biletu"/>
+              <TableColumn fx:id="buttonsColumn" editable="false" prefWidth="143.0" resizable="false"
+                           sortable="false" style="-fx-alignment: CENTER" text="Bilety"/>
+          </columns>
+        </TableView>
+    </AnchorPane>
+</SplitPane>
